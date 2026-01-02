@@ -2,6 +2,10 @@
 
 Therapy Buddy is a SwiftUI-based iOS app exploring a personalized, reflective chat experience designed to support self-reflection and emotional processing. It is intentionally **non-clinical** and not a replacement for professional mental health care.
 
+## Purpose
+
+This project was inspired by the value of having a calm, non-judgmental space to organize thoughts, reflect on emotions, and practice articulating feelings before engaging in real-world conversations and experiences. The goal is to support clarity and self-reflection — not to provide therapy, diagnosis, or medical advice.
+
 ## MVP Scope
 - Text-based chat interface
 - Local state management using MVVM
