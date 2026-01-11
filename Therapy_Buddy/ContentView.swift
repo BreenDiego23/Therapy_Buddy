@@ -7,6 +7,14 @@ enum ChatRole {
     case system
 }
 
+enum ChatMode {
+    case vent
+    case reframe
+    case plan
+    case gratitude
+    case relationship
+}
+
 struct ChatMessage: Identifiable {
     let id: UUID
     let role: ChatRole
@@ -35,7 +43,7 @@ final class ChatViewModel: ObservableObject {
         messages.append(ChatMessage(role: .user, text: trimmed))
         inputText = ""
 
-        // MVP placeholder response (we’ll replace with real AI call next)
+        // Placeholder response (swap this for a real AI call next)
         isThinking = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.messages.append(ChatMessage(role: .assistant, text: "Tell me more about that. What part feels the strongest right now?"))
@@ -67,7 +75,7 @@ struct ContentView: View {
                         }
                         .padding(.vertical, 12)
                     }
-                    .onReceive(vm.$messages) { _ in
+                    .onChange(of: vm.messages.count) { _, _ in
                         guard let last = vm.messages.last else { return }
                         withAnimation {
                             proxy.scrollTo(last.id, anchor: .bottom)
